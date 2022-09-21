@@ -9,7 +9,12 @@ const req = {
                         "fieldname" : "family_name",
                         "value": "test"
                 
-                    }
+                    },
+                    {
+                        "fieldname" : "email",
+                        "value": "test@rest.com"
+                
+                    },
                 ],
             }
             ,
@@ -130,3 +135,49 @@ if (req.additional_details && req.additional_details.length > 0) {
 
 const res2 = body.build() // Build 2.x or greater DSL (default)
 console.log(JSON.stringify(res2));
+
+// {
+//    "sort":[
+//       {
+//          "family_name":{
+//             "order":"asc"
+//          }
+//       }
+//    ],
+//    "from":0,
+//    "size":200,
+//    "query":{
+//       "bool":{
+//          "filter":{
+//             "multi_match":{
+//                "fields":[
+//                   "family_name",
+//                   "given_name"
+//                ],
+//                "query":"chinthaka",
+//                "type":"phrase",
+//                "lenient":true
+//             }
+//          },
+//          "must":[
+//             {
+//                "term":{
+//                   "family_name":"test"
+//                }
+//             },
+//             {
+//                "term":{
+//                   "email":"test@rest.com"
+//                }
+//             }
+//          ],
+//          "must_not":[
+//             {
+//                "term":{
+//                   "given_name":"sample"
+//                }
+//             }
+//          ]
+//       }
+//    }
+// }
