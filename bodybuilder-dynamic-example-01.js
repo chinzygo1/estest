@@ -10,25 +10,13 @@ const req = {
             
                 },
                 {
-                    "fieldname" : "email",
-                    "value": "test@rest.com",
-                    "condition": "eq"
-            
-                },
-                {
-                    "fieldname" : "given_name",
-                    "value": "sample",
+                    "fieldname" : "username",
+                    "value": "testa1@rest.com",
                     "condition": "neq"
             
                 }
         ]
     },
-    "sort":[
-      {
-        "fieldname" : "family_name",
-        "order": "asc"
-      }
-   ],
    "additional_details": [
         {
            "field_key" : "from",

@@ -9,7 +9,7 @@ const req = {
             },
             { 
                 "option":"query",
-                "option_value": "chinthaka"
+                "option_value": "jay"
             },
             { 
                 "option":"type",
@@ -21,12 +21,6 @@ const req = {
             }
         ],
         }],
-    "sort":[
-      {
-        "fieldname" : "family_name",
-        "order": "asc"
-      }
-   ],
    "additional_details": [
         {
            "field_key" : "from",
