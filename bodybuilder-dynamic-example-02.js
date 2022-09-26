@@ -1,34 +1,26 @@
 var bodybuilder = require('bodybuilder');
 
 const req = {
-    "filter": {
-          "fields": [
-            {
-                "eq": [
-                    {
-                        "fieldname" : "family_name",
-                        "value": "test"
-                
-                    },
-                    {
-                        "fieldname" : "email",
-                        "value": "test@rest.com"
-                
-                    },
-                ],
+    "search": [{ 
+        "multi": [
+            { 
+                "option":"fields",
+                "option_value": ['family_name', 'given_name']
+            },
+            { 
+                "option":"query",
+                "option_value": "chinthaka"
+            },
+            { 
+                "option":"type",
+                "option_value": "phrase"
+            },
+            { 
+                "option":"lenient",
+                "option_value": true
             }
-            ,
-            {
-                "neq": [
-                    {
-                        "fieldname" : "given_name",
-                        "value": "sample"
-                
-                    }
-                ]
-            }
-        ]
-    },
+        ],
+        }],
     "sort":[
       {
         "fieldname" : "family_name",
