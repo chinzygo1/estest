@@ -47,7 +47,7 @@ var body = bodybuilder();
 if (req.filter && req.filter.fields.length > 0) {
     req.filter.fields.forEach((item) => {
         let key = Object.keys(item);
-        switch (item.operator) {
+        switch (item.condition) {
             case 'eq':
                     body.query('term', item.fieldname, item.value);
                 break;
