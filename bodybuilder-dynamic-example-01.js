@@ -3,30 +3,24 @@ var bodybuilder = require('bodybuilder');
 const req = {
     "filter": {
           "fields": [
-            {
-                "eq": [
-                    {
-                        "fieldname" : "family_name",
-                        "value": "test"
-                
-                    },
-                    {
-                        "fieldname" : "email",
-                        "value": "test@rest.com"
-                
-                    },
-                ],
-            }
-            ,
-            {
-                "neq": [
-                    {
-                        "fieldname" : "given_name",
-                        "value": "sample"
-                
-                    }
-                ]
-            }
+                {
+                    "fieldname" : "family_name",
+                    "value": "test",
+                    "operator": "eq"
+            
+                },
+                {
+                    "fieldname" : "email",
+                    "value": "test@rest.com",
+                    "operator": "eq"
+            
+                },
+                {
+                    "fieldname" : "given_name",
+                    "value": "sample",
+                    "operator": "neq"
+            
+                }
         ]
     },
     "sort":[
@@ -53,22 +47,13 @@ var body = bodybuilder();
 if (req.filter && req.filter.fields.length > 0) {
     req.filter.fields.forEach((item) => {
         let key = Object.keys(item);
-        switch (key[0]) {
+        switch (item.operator) {
             case 'eq':
-                if (item.eq.length > 0) {
-                    item.eq.forEach((innerItem) => {
-                        body.query('term', innerItem.fieldname, innerItem.value);
-                    })
-                }
-                
+                    body.query('term', item.fieldname, item.value);
                 break;
         
             case 'neq':
-                if (item.neq.length > 0) {
-                    item.neq.forEach((innerItem) => {
-                        body.notQuery('term', innerItem.fieldname, innerItem.value);
-                    })
-                }
+                body.notQuery('term', item.fieldname, item.value);
                 break;
         }
     });
