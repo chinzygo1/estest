@@ -6,19 +6,19 @@ const req = {
                 {
                     "fieldname" : "family_name",
                     "value": "test",
-                    "operator": "eq"
+                    "condition": "eq"
             
                 },
                 {
                     "fieldname" : "email",
                     "value": "test@rest.com",
-                    "operator": "eq"
+                    "condition": "eq"
             
                 },
                 {
                     "fieldname" : "given_name",
                     "value": "sample",
-                    "operator": "neq"
+                    "condition": "neq"
             
                 }
         ]
