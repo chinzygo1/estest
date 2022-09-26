@@ -2,7 +2,7 @@ var bodybuilder = require('bodybuilder');
 
 const req = {
     "filter": {
-          "and": [
+          "fields": [
             {
                 "eq": [
                     {
@@ -70,8 +70,8 @@ const req = {
 
 var body = bodybuilder();
 // processing the filters
-if (req.filter && req.filter.and.length > 0) {
-    req.filter.and.forEach((item) => {
+if (req.filter && req.filter.fields.length > 0) {
+    req.filter.fields.forEach((item) => {
         let key = Object.keys(item);
         switch (key[0]) {
             case 'eq':
